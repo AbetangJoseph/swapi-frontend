@@ -26,8 +26,28 @@
 
     <div class="container">
       <planetCard cardTitle="Corellia" />
-      <planetCard cardTitle="Corellia"/>
-      <planetCard cardTitle="Corellia"/>
+      <planetCard cardTitle="Corellia" />
+      <planetCard cardTitle="Corellia" />
+    </div>
+
+    <sectionTitle title="Popular Characters" />
+
+    <div id="popularCharacters">
+      <PopularCharacters />
+      <PopularCharacters />
+      <PopularCharacters />
+      <PopularCharacters />
+    </div>
+
+    <div class="container" style="margin-top: 5rem; margin-bottom: 5rem;">
+      <Button
+        border="2px solid black"
+        borderRadius="4"
+        btnText="VIEW MORE"
+        width="480"
+        fontSize="14"
+        style="float:none"
+      />
     </div>
   </div>
 </template>
@@ -38,6 +58,7 @@ import sectionTitle from "@/components/titles/sectionTitle.vue";
 import Card from "@/components/Card.vue";
 import Button from "@/components/Button.vue";
 import planetCard from "@/components/planetCard.vue";
+import PopularCharacters from "@/components/PopularCharacters.vue";
 
 export default {
   name: "home",
@@ -46,7 +67,8 @@ export default {
     sectionTitle,
     Card,
     Button,
-    planetCard
+    planetCard,
+    PopularCharacters
   }
 };
 </script>
@@ -59,9 +81,17 @@ export default {
   justify-content: space-evenly;
 }
 
+#popularCharacters {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 20px;
+  margin-right: 10px;
+  justify-content: center;
+}
+
 @media (min-width: 1200px) {
   .container {
-    max-width: 1400px;
+    max-width: 1360px;
   }
 }
 </style>
