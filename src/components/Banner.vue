@@ -1,7 +1,9 @@
 <template>
   <div class="jumbotron jumbotron-fluid">
     <div class="container">
-      <img src="../assets/logo.png" alt="Star Wars Logo" id="top-left-logo" />
+      <router-link to="/">
+        <img src="../assets/logo.png" alt="Star Wars Logo" id="top-left-logo" />
+      </router-link>
       <div id="banner-header">
         <img src="../assets/logo.png" alt="Star Wars Logo" id="center-logo" />
         <h2 id="Directory">Directory</h2>
