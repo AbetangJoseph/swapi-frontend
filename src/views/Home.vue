@@ -21,6 +21,14 @@
         style="float:none"
       />
     </div>
+
+    <sectionTitle title="Popular Planets" />
+
+    <div class="container">
+      <planetCard cardTitle="Corellia" />
+      <planetCard cardTitle="Corellia"/>
+      <planetCard cardTitle="Corellia"/>
+    </div>
   </div>
 </template>
 
@@ -29,6 +37,7 @@ import Banner from "@/components/Banner.vue";
 import sectionTitle from "@/components/titles/sectionTitle.vue";
 import Card from "@/components/Card.vue";
 import Button from "@/components/Button.vue";
+import planetCard from "@/components/planetCard.vue";
 
 export default {
   name: "home",
@@ -36,7 +45,8 @@ export default {
     Banner,
     sectionTitle,
     Card,
-    Button
+    Button,
+    planetCard
   }
 };
 </script>
