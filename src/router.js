@@ -20,6 +20,15 @@ export default new Router({
       // which is lazy-loaded when the route is visited.
       component: () =>
         import(/* webpackChunkName: "about" */ './views/About.vue')
+    },
+    {
+      path: '/starships',
+      name: 'starships',
+      // route level code-splitting
+      // this generates a separate chunk (starships.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () =>
+        import(/* webpackChunkName: "starships" */ './views/Starships.vue')
     }
   ]
 });
