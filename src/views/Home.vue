@@ -12,7 +12,7 @@
     </div>
 
     <div class="container" style="margin-top: 5rem">
-      <Button
+      <ButtonComponent
         border="2px solid black"
         borderRadius="4"
         btnText="VIEW MORE"
@@ -40,7 +40,7 @@
     </div>
 
     <div class="container" style="margin-top: 5rem; margin-bottom: 5rem;">
-      <Button
+      <ButtonComponent
         border="2px solid black"
         borderRadius="4"
         btnText="VIEW MORE"
@@ -56,7 +56,7 @@
 import Banner from "@/components/Banner.vue";
 import sectionTitle from "@/components/titles/sectionTitle.vue";
 import Card from "@/components/Card.vue";
-import Button from "@/components/Button.vue";
+import ButtonComponent from "@/components/ButtonComponent.vue";
 import planetCard from "@/components/planetCard.vue";
 import PopularCharacters from "@/components/PopularCharacters.vue";
 
@@ -66,7 +66,7 @@ export default {
     Banner,
     sectionTitle,
     Card,
-    Button,
+    ButtonComponent,
     planetCard,
     PopularCharacters
   }

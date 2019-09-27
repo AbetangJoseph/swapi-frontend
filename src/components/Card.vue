@@ -6,17 +6,17 @@
       <p
         class="card-text"
       >The Ghost is a modified VCX-100 light freighter, Manufactured by the Corellian Engineering Coperation.</p>
-      <Button bgcolor="rgb(214, 214, 214)" btnText="Read More ->" />
+      <ButtonComponent bgcolor="rgb(214, 214, 214)" btnText="Read More ->" />
     </div>
   </div>
 </template>
 
 <script>
-import Button from "@/components/Button.vue";
+import ButtonComponent from "@/components/ButtonComponent.vue";
 export default {
   name: "card",
   components: {
-    Button
+    ButtonComponent
   }
 };
 </script>

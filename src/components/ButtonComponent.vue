@@ -6,25 +6,25 @@
     :style="style"
     @mouseover="mouseOver()"
     @mouseleave="mouseLeave()"
-  >{{btnText }}</a>
+  >{{btnText}}</a>
 </template>
 
 
 <script>
 export default {
-  name: "button",
+  name: "ButtonComponent",
   props: {
     bgcolor: {
       type: String,
       default: "#fff"
     },
     width: {
-      type: Number,
-      default: 150
+      type: String,
+      default: "150"
     },
     borderRadius: {
-      type: Number,
-      default: 0
+      type: String,
+      default: "0"
     },
     btnText: {
       type: String,
@@ -35,8 +35,8 @@ export default {
       default: "none"
     },
     fontSize: {
-      type: Number,
-      default: 12
+      type: String,
+      default: "12"
     },
     icon: {
       type: String
@@ -70,32 +70,13 @@ export default {
 </script>
 
 <style scoped>
-/* .btn {
-  border-radius: 0px;
-  background-color: rgb(214, 214, 214);
-  float: right;
-  height: 45px;
-  padding: 12px;
-  width: 150px;
-  justify-content: center;
-  font-size: 12px;
-  font-family: "Montserrat", sans-serif;
-}
-
-.btn:hover {
-  background-color: black;
-  color: white;
-} */
-
 .btn {
   border-radius: 0px;
-  /* background-color: rgb(214, 214, 214); */
   float: right;
   height: 45px;
   padding: 12px;
   width: 150px;
   justify-content: center;
-  /* font-size: 12px; */
   font-family: "Montserrat", sans-serif;
 }
 
