@@ -29,6 +29,15 @@ export default new Router({
       // which is lazy-loaded when the route is visited.
       component: () =>
         import(/* webpackChunkName: "starships" */ './views/Starships.vue')
+    },
+    {
+      path: '/characters',
+      name: 'characters',
+      // route level code-splitting
+      // this generates a separate chunk (characters.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () =>
+        import(/* webpackChunkName: "characters" */ './views/Characters.vue')
     }
   ]
 });
