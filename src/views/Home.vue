@@ -1,14 +1,16 @@
 <template>
   <div class="home">
-    <h1>swapi</h1>
-
-    <Jumbotron />
+    <Banner />
   </div>
 </template>
 
 <script>
+import Banner from "@/components/Banner.vue";
+
 export default {
   name: "home",
-  components: {}
+  components: {
+    Banner
+  }
 };
 </script>
