@@ -1,5 +1,5 @@
 <template>
-  <div class="card" style="width: 23.5rem;">
+  <div class="card" style="width: 22.5rem;">
     <h4 id="cardTitle">{{cardTitle}}</h4>
     <img src="../assets/planet-1.jpg" class="card-img-top" alt="A Planet" style />
   </div>
