@@ -6,7 +6,10 @@
     :style="style"
     @mouseover="mouseOver()"
     @mouseleave="mouseLeave()"
-  >{{btnText}}</a>
+  >
+    {{btnText}}
+    <img :src="icon2" />
+  </a>
 </template>
 
 
@@ -55,15 +58,19 @@ export default {
   },
   data() {
     return {
-      bgColorHover: this.bgcolor
+      bgColorHover: this.bgcolor,
+      icon2: this.icon
     };
   },
   methods: {
     mouseOver() {
       this.bgColorHover = "black";
+      this.icon2 =
+        this.icon && "/assets/images/arrow-pointing-to-right-white.svg";
     },
     mouseLeave() {
       this.bgColorHover = this.bgcolor;
+      this.icon2 = this.icon;
     }
   }
 };
@@ -83,9 +90,6 @@ export default {
 #btn:hover {
   background-color: black;
   color: white;
-}
-
-img {
-  fill: yellow;
+  fill: white;
 }
 </style>

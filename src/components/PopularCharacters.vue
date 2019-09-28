@@ -3,7 +3,7 @@
     <div class="row no-gutters">
       <div class="col-md-7">
         <img
-          src="../assets/character-1.jpg"
+          src="/assets/images/character-1.jpg"
           class="card-img"
           alt="star war character"
           height="370px"

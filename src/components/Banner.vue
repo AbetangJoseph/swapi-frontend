@@ -2,10 +2,10 @@
   <div class="jumbotron jumbotron-fluid">
     <div class="container">
       <router-link to="/">
-        <img src="../assets/logo.png" alt="Star Wars Logo" id="top-left-logo" />
+        <img src="/assets/images/logo.png" alt="Star Wars Logo" id="top-left-logo" />
       </router-link>
       <div id="banner-header">
-        <img src="../assets/logo.png" alt="Star Wars Logo" id="center-logo" />
+        <img src="/assets/images/logo.png" alt="Star Wars Logo" id="center-logo" />
         <h2 id="Directory">Directory</h2>
       </div>
       <hr />
@@ -31,7 +31,7 @@ export default {
 
 <style  scoped>
 .jumbotron {
-  background-image: url("../assets/hero-banner.jpg");
+  background-image: url("/assets/images/hero-banner.jpg");
   height: 620px;
   background-position: center;
   background-repeat: no-repeat;
