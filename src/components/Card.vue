@@ -1,12 +1,25 @@
 <template>
   <div class="card" style="width: 23rem;">
-    <img src="../assets/starship-2.jpg" class="card-img-top" alt="..." style="height: 230px;" />
+    <img
+      :src="`/assets/images/starship-${Math.ceil(Math.random() * 6)}.jpg`"
+      class="card-img-top"
+      alt="starship image"
+      style="height: 230px;"
+    />
     <div class="card-body">
-      <h5 class="card-title">Ghost</h5>
-      <p
-        class="card-text"
-      >The Ghost is a modified VCX-100 light freighter, Manufactured by the Corellian Engineering Coperation.</p>
-      <ButtonComponent bgcolor="rgb(214, 214, 214)" btnText="Read More ->" />
+      <h5 class="card-title">{{name}}</h5>
+      <p class="card-text">{{model}}</p>
+
+      <p class="card-text">
+        <b>{{title}}</b>
+        {{manufacturer}}
+      </p>
+
+      <ButtonComponent
+        bgcolor="rgb(214, 214, 214)"
+        btnText="Read More"
+        icon="/assets/images/arrow-pointing-to-right.svg"
+      />
     </div>
   </div>
 </template>
@@ -15,6 +28,7 @@
 import ButtonComponent from "@/components/ButtonComponent.vue";
 export default {
   name: "card",
+  props: ["name", "model", "manufacturer", "title"],
   components: {
     ButtonComponent
   }

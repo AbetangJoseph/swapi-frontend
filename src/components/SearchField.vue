@@ -2,7 +2,7 @@
   <div class="input-group input-group-lg" id="search-box">
     <div class="input-group-prepend">
       <span class="input-group-text" id="inputGroup-sizing-lg">
-        <img src="../assets/magnifying-glass.svg" alt srcset />
+        <img src="/assets/images/magnifying-glass.svg" alt srcset />
       </span>
     </div>
     <input

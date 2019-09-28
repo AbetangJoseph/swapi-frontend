@@ -3,23 +3,28 @@
     <Banner />
     <sectionTitle title="Popular Starships" />
     <div class="container">
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
+      <Card
+        :name="starship.name"
+        :model="starship.model"
+        title="Starship Class :"
+        :manufacturer="starship.starship_class"
+        v-for="(starship, index) in starships"
+        v-bind:key="index"
+      />
+      <Spinner v-if="starships === null" />
     </div>
 
-    <div class="container" style="margin-top: 5rem">
-      <ButtonComponent
-        border="2px solid black"
-        borderRadius="4"
-        btnText="VIEW MORE"
-        width="480"
-        fontSize="14"
-        style="float:none"
-      />
+    <div class="container" style="margin-top: 5rem" v-if="starships">
+      <router-link to="/starships">
+        <ButtonComponent
+          border="2px solid black"
+          borderRadius="4"
+          btnText="VIEW MORE"
+          width="480"
+          fontSize="14"
+          style="float:none"
+        />
+      </router-link>
     </div>
 
     <sectionTitle title="Popular Planets" />
@@ -58,7 +63,9 @@ import sectionTitle from "@/components/titles/sectionTitle.vue";
 import Card from "@/components/Card.vue";
 import ButtonComponent from "@/components/ButtonComponent.vue";
 import planetCard from "@/components/planetCard.vue";
+import Spinner from "@/components/Spinner.vue";
 import PopularCharacters from "@/components/PopularCharacters.vue";
+import axios from "axios";
 
 export default {
   name: "home",
@@ -68,7 +75,24 @@ export default {
     Card,
     ButtonComponent,
     planetCard,
-    PopularCharacters
+    PopularCharacters,
+    Spinner
+  },
+  data() {
+    return {
+      starships: null,
+      errors: []
+    };
+  },
+  mounted() {
+    axios
+      .get(`https://swapi.co/api/starships`)
+      .then(response => {
+        this.starships = response.data.results.slice(0, 6);
+      })
+      .catch(error => {
+        this.errors.push(error);
+      });
   }
 };
 </script>

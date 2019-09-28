@@ -4,12 +4,12 @@
     <ul class="pagination pagination-lg">
       <li class="page-item">
         <a class="page-link" href="#" id="previous">
-          <img src="../assets/lessthan.svg" />
+          <img src="/assets/images/lessthan.svg" />
         </a>
       </li>
       <li class="page-item">
         <a class="page-link" href="#" id="next">
-          <img src="../assets/greaterthan.svg" />
+          <img src="/assets/images/greaterthan.svg" />
         </a>
       </li>
     </ul>
