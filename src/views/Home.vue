@@ -38,21 +38,27 @@
     <sectionTitle title="Popular Characters" />
 
     <div id="popularCharacters">
-      <PopularCharacters />
-      <PopularCharacters />
-      <PopularCharacters />
-      <PopularCharacters />
+      <PopularCharacters
+        :name="characters.name"
+        :dob="characters.birth_year"
+        :gender="characters.gender"
+        v-for="(characters, index) in characters"
+        v-bind:key="index"
+      />
+      <Spinner v-if="starships === null" />
     </div>
 
-    <div class="container" style="margin-top: 5rem; margin-bottom: 5rem;">
-      <ButtonComponent
-        border="2px solid black"
-        borderRadius="4"
-        btnText="VIEW MORE"
-        width="480"
-        fontSize="14"
-        style="float:none"
-      />
+    <div class="container" style="margin-top: 5rem; margin-bottom: 5rem;" v-if="characters">
+      <router-link to="/characters">
+        <ButtonComponent
+          border="2px solid black"
+          borderRadius="4"
+          btnText="VIEW MORE"
+          width="480"
+          fontSize="14"
+          style="float:none"
+        />
+      </router-link>
     </div>
   </div>
 </template>
@@ -81,6 +87,7 @@ export default {
   data() {
     return {
       starships: null,
+      characters: null,
       errors: []
     };
   },
@@ -89,6 +96,15 @@ export default {
       .get(`https://swapi.co/api/starships`)
       .then(response => {
         this.starships = response.data.results.slice(0, 6);
+      })
+      .catch(error => {
+        this.errors.push(error);
+      });
+
+    axios
+      .get(`https://swapi.co/api/people`)
+      .then(response => {
+        this.characters = response.data.results.slice(0, 4);
       })
       .catch(error => {
         this.errors.push(error);

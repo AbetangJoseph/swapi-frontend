@@ -3,7 +3,7 @@
     <div class="row no-gutters">
       <div class="col-md-7">
         <img
-          src="/assets/images/character-1.jpg"
+          :src="`/assets/images/character-${Math.ceil(Math.random() * 4)}.jpg`"
           class="card-img"
           alt="star war character"
           height="370px"
@@ -12,12 +12,18 @@
       <div class="col-md-5">
         <div class="card-body">
           <span>
-            <h5 class="card-title">Luke Skywalker</h5>
-            <small class="text-muted">Son of Anakin</small>
+            <h5 class="card-title">{{name}}</h5>
+            <small class="text-muted">d.o.b : {{dob}}</small>
+            <p>
+              <small class="text-muted">gender: {{gender}}</small>
+            </p>
           </span>
-          <p
-            class="card-text"
-          >This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <p class="card-text">
+            This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer...
+            <router-link :to="{ name: 'character', params: { name: name }}">
+              <u>Read more</u>
+            </router-link>
+          </p>
           <p class="card-text"></p>
         </div>
       </div>
@@ -29,7 +35,7 @@
 <script>
 export default {
   name: "PopularCharacters",
-  props: [""]
+  props: ["name", "gender", "dob"]
 };
 </script>
 
