@@ -1,9 +1,12 @@
 <template>
   <div class="input-group mb-3 col-md-2">
-    <select class="custom-select" id="inputGroupSelect01">
-      <option selected>Select...</option>
-      <option value="Male">{{option1}}</option>
-      <option value="Female">{{option2}}</option>
+    <select class="custom-select" id="inputGroupSelect01" @change="onChange($event)">
+      <option :selected="isSelected">Select...</option>
+      <option
+        :value="option.toLowerCase()"
+        v-for="(option, index) in options"
+        :key="index"
+      >{{option}}</option>
     </select>
   </div>
 </template>
@@ -11,7 +14,7 @@
 <script>
 export default {
   name: "Option",
-  props: ["option1", "option2"]
+  props: ["options", "isSelected", "onChange"]
 };
 </script>
 
