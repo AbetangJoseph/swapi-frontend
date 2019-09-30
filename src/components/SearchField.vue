@@ -12,6 +12,8 @@
       aria-label="Sizing example input"
       aria-describedby="inputGroup-sizing-lg"
       :placeholder="placeholder"
+      v-model="search"
+      @keyup="getSearch"
     />
   </div>
 </template>
@@ -20,8 +22,16 @@
 <script>
 export default {
   name: "banner",
-  props: {
-    placeholder: String
+  props: ["placeholder"],
+  data() {
+    return {
+      search: ""
+    };
+  },
+  methods: {
+    getSearch() {
+      this.$emit("typing", this.search);
+    }
   }
 };
 </script>

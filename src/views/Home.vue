@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <Banner />
+    <Banner @typing="search($event)" />
     <sectionTitle title="Popular Starships" />
     <div class="container">
       <StarshipCard
@@ -15,7 +15,7 @@
       <Spinner v-if="starships === null" />
     </div>
 
-    <div class="container" style="margin-top: 5rem" v-if="starships">
+    <div class="container" style="margin-top: 5rem" v-if="starships ">
       <router-link to="/starships">
         <ButtonComponent
           border="2px solid black"
@@ -90,6 +90,9 @@ export default {
       starships: null,
       characters: null,
       planets: null,
+      starshipsCopy: null,
+      charactersCopy: null,
+      planetsCopy: null,
       errors: []
     };
   },
@@ -98,6 +101,7 @@ export default {
       .get(`https://swapi.co/api/starships`)
       .then(response => {
         this.starships = response.data.results.slice(0, 6);
+        this.starshipsCopy = response.data.results.slice(0, 6);
       })
       .catch(error => {
         this.errors.push(error);
@@ -107,6 +111,7 @@ export default {
       .get(`https://swapi.co/api/people`)
       .then(response => {
         this.characters = response.data.results.slice(0, 4);
+        this.charactersCopy = response.data.results.slice(0, 4);
       })
       .catch(error => {
         this.errors.push(error);
@@ -116,10 +121,47 @@ export default {
       .get(`https://swapi.co/api/planets`)
       .then(response => {
         this.planets = response.data.results.slice(0, 3);
+        this.planetsCopy = response.data.results.slice(0, 3);
       })
       .catch(error => {
         this.errors.push(error);
       });
+  },
+  methods: {
+    search(search) {
+      if (search.trim() === "") {
+        this.starships = this.starshipsCopy;
+        this.characters = this.charactersCopy;
+        this.planets = this.planetsCopy;
+        return;
+      }
+      axios
+        .get(`https://swapi.co/api/starships/?search=${search}`)
+        .then(response => {
+          this.starships = response.data.results.slice(0, 6);
+        })
+        .catch(error => {
+          this.errors.push(error);
+        });
+
+      axios
+        .get(`https://swapi.co/api/people/?search=${search}`)
+        .then(response => {
+          this.characters = response.data.results.slice(0, 4);
+        })
+        .catch(error => {
+          this.errors.push(error);
+        });
+
+      axios
+        .get(`https://swapi.co/api/planets/?search=${search}`)
+        .then(response => {
+          this.planets = response.data.results.slice(0, 3);
+        })
+        .catch(error => {
+          this.errors.push(error);
+        });
+    }
   }
 };
 </script>
