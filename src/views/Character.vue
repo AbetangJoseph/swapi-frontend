@@ -71,7 +71,6 @@ export default {
       .get(`https://swapi.co/api/people/${this.$route.params.id}/`)
       .then(response => {
         this.character = response.data;
-        console.log(response);
       })
       .catch(error => {
         this.errors.push(error);
