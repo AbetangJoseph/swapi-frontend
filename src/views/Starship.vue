@@ -6,16 +6,15 @@
           <img src="/assets/images/logo.png" alt="Star Wars Logo" id="top-left-logo" />
         </router-link>
         <div id="banner-header">
-          <!-- <div class="col-m-4 text-center"> -->
-          <!-- <img
-            :src="`/assets/images/starship-${Math.ceil(Math.random() * 6)}.jpg`"
+          <img
+            :src="`/assets/images/starship-${Math.ceil(Math.random() * 6)}.png`"
             alt="Star Wars Logo"
             id="center-logo"
-            max-width="700"
+            width="700"
             height="400"
-          />-->
-          <!-- </div> -->
+          />
         </div>
+        <h2 class="card-title" id="img-text">{{starship && starship.name}}</h2>
       </div>
     </div>
     <Spinner v-if="starship === null" />
@@ -29,17 +28,29 @@
         Harum voluptatum minus unde aliquam obcaecati perferendis perspiciatis eaque culpa itaque alias repudiandae eum atque nihil, quasi, animi molestiae labore dolores ex odio! Quisquam nulla sed dolores ipsa minus eaque in illo quidem architecto? Vero, veniam iusto nulla doloribus nobis doloremque rem eius totam, similique sapiente, fugit ipsa molestiae dicta repellendus necessitatibus alias expedita reiciendis minima assumenda eligendi maiores animi! Optio maxime necessitatibus dolorum laudantium expedita aspernatur dolorem numquam voluptates, hic modi temporibus consequatur consequuntur iste alias voluptas quos voluptatibus, omnis quia nesciunt! Vero laborum voluptates accusantium deleniti!
       </p>
     </div>
+    <div class="container d-flex justify-content-center mt-5" v-if="starship">
+      <ButtonComponent
+        border="1px solid black"
+        btnText="Recently Viewed Starships"
+        width="480"
+        fontSize="14"
+        style="float:none"
+      />
+    </div>
+    <hr style="width:80%" v-if="starship" />
   </div>
 </template>
 
 <script>
 import axios from "axios";
 import Spinner from "@/components/Spinner.vue";
+import ButtonComponent from "@/components/ButtonComponent.vue";
 
 export default {
   name: "starship",
   components: {
-    Spinner
+    Spinner,
+    ButtonComponent
   },
   data() {
     return {
@@ -52,7 +63,6 @@ export default {
       .get(`https://swapi.co/api/starships/${this.$route.params.id}`)
       .then(response => {
         this.starship = response.data;
-        console.log(response);
       })
       .catch(error => {
         this.errors.push(error);
@@ -95,9 +105,25 @@ export default {
   display: flex;
 }
 
+#img-text {
+  height: 48px;
+  width: 130px;
+  position: absolute;
+  top: 28rem;
+  left: 100px;
+  color: white;
+}
+
 @media (min-width: 1200px) {
   .container {
     max-width: 750px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  img {
+    width: 300px;
+    height: 200px;
   }
 }
 </style>
