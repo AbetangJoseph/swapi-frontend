@@ -13,7 +13,7 @@
         Find your favorite Characters, Films, Species,
         <br />Starships and Planets
       </p>
-      <SearchField placeholder="Enter a search term" />
+      <SearchField placeholder="Enter a search term" @typing="sendToHome($event)" />
     </div>
   </div>
 </template>
@@ -25,6 +25,11 @@ export default {
   name: "banner",
   components: {
     SearchField
+  },
+  methods: {
+    sendToHome(search) {
+      this.$emit("typing", search);
+    }
   }
 };
 </script>
