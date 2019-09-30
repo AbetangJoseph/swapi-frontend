@@ -29,10 +29,9 @@
 
     <sectionTitle title="Popular Planets" />
 
-    <div class="container">
-      <planetCard cardTitle="Corellia" />
-      <planetCard cardTitle="Corellia" />
-      <planetCard cardTitle="Corellia" />
+    <Spinner v-if="planets === null" />
+    <div class="container" v-if="planets">
+      <planetCard :cardTitle="planet.name" v-for="(planet, index) in planets" v-bind:key="index" />
     </div>
 
     <sectionTitle title="Popular Characters" />
@@ -89,6 +88,7 @@ export default {
     return {
       starships: null,
       characters: null,
+      planets: null,
       errors: []
     };
   },
@@ -106,6 +106,15 @@ export default {
       .get(`https://swapi.co/api/people`)
       .then(response => {
         this.characters = response.data.results.slice(0, 4);
+      })
+      .catch(error => {
+        this.errors.push(error);
+      });
+
+    axios
+      .get(`https://swapi.co/api/planets`)
+      .then(response => {
+        this.planets = response.data.results.slice(0, 3);
       })
       .catch(error => {
         this.errors.push(error);

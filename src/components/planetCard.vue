@@ -1,7 +1,12 @@
 <template>
   <div class="card" style="width: 22.5rem;">
     <h4 id="cardTitle">{{cardTitle}}</h4>
-    <img src="/assets/images/planet-1.jpg" class="card-img-top" alt="A Planet" style />
+    <img
+      :src="`/assets/images/planet-${Math.ceil(Math.random() * 3)}.jpg`"
+      class="card-img-top"
+      alt="A Planet"
+      style
+    />
   </div>
 </template>
 
