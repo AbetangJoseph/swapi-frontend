@@ -20,7 +20,7 @@
           </span>
           <p class="card-text">
             This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer...
-            <router-link :to="{ name: 'character', params: { name: name }}">
+            <router-link :to="{ name: 'character', params: { id: url[url.length - 2] }}">
               <u>Read more</u>
             </router-link>
           </p>
@@ -35,7 +35,7 @@
 <script>
 export default {
   name: "PopularCharacters",
-  props: ["name", "gender", "dob"]
+  props: ["name", "gender", "dob", "url"]
 };
 </script>
 
