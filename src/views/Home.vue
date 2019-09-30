@@ -3,9 +3,10 @@
     <Banner />
     <sectionTitle title="Popular Starships" />
     <div class="container">
-      <Card
+      <StarshipCard
         :name="starship.name"
         :model="starship.model"
+        :url="starship.url"
         title="Starship Class :"
         :manufacturer="starship.starship_class"
         v-for="(starship, index) in starships"
@@ -66,7 +67,7 @@
 <script>
 import Banner from "@/components/Banner.vue";
 import sectionTitle from "@/components/titles/sectionTitle.vue";
-import Card from "@/components/Card.vue";
+import StarshipCard from "@/components/StarshipCard.vue";
 import ButtonComponent from "@/components/ButtonComponent.vue";
 import planetCard from "@/components/planetCard.vue";
 import Spinner from "@/components/Spinner.vue";
@@ -78,7 +79,7 @@ export default {
   components: {
     Banner,
     sectionTitle,
-    Card,
+    StarshipCard,
     ButtonComponent,
     planetCard,
     PopularCharacters,

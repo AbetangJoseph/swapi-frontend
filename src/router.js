@@ -31,6 +31,15 @@ export default new Router({
         import(/* webpackChunkName: "starships" */ './views/Starships.vue')
     },
     {
+      path: '/starship/:id',
+      name: 'starship',
+      // route level code-splitting
+      // this generates a separate chunk (starships.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () =>
+        import(/* webpackChunkName: "starships" */ './views/Starship.vue')
+    },
+    {
       path: '/character/:id',
       name: 'character',
       // route level code-splitting

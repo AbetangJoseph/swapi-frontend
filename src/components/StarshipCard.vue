@@ -15,11 +15,13 @@
         {{manufacturer}}
       </p>
 
-      <ButtonComponent
-        bgcolor="rgb(214, 214, 214)"
-        btnText="Read More"
-        icon="/assets/images/arrow-pointing-to-right.svg"
-      />
+      <router-link :to="{ name: 'starship', params: { id: url.match(/\d+/)[0]}}">
+        <ButtonComponent
+          bgcolor="rgb(214, 214, 214)"
+          btnText="Read More"
+          icon="/assets/images/arrow-pointing-to-right.svg"
+        />
+      </router-link>
     </div>
   </div>
 </template>
@@ -28,7 +30,7 @@
 import ButtonComponent from "@/components/ButtonComponent.vue";
 export default {
   name: "card",
-  props: ["name", "model", "manufacturer", "title"],
+  props: ["name", "model", "manufacturer", "title", "url"],
   components: {
     ButtonComponent
   }
