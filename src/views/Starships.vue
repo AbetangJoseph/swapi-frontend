@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Banner />
+    <Banner @typing="search($event)" />
     <sectionTitle title="Popular Starships" />
 
     <div class="container">
@@ -40,6 +40,7 @@ export default {
   data() {
     return {
       starships: null,
+      starshipsCopy: null,
       meta: null,
       errors: []
     };
@@ -49,6 +50,7 @@ export default {
       .get(`https://swapi.co/api/starships`)
       .then(response => {
         this.starships = response.data.results;
+        this.starshipsCopy = response.data.results;
         this.meta = {
           next: response.data.next,
           previous: response.data.previous,
@@ -72,6 +74,21 @@ export default {
             count: response.data.count,
             current: response.config.url[response.config.url.length - 1]
           };
+        })
+        .catch(error => {
+          this.errors.push(error);
+        });
+    },
+    search(search) {
+      if (search.trim() === "") {
+        this.starships = this.starshipsCopy;
+        return;
+      }
+
+      axios
+        .get(`https://swapi.co/api/starships/?search=${search}`)
+        .then(response => {
+          this.starships = response.data.results;
         })
         .catch(error => {
           this.errors.push(error);
