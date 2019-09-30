@@ -31,7 +31,7 @@ export default new Router({
         import(/* webpackChunkName: "starships" */ './views/Starships.vue')
     },
     {
-      path: '/character/:name',
+      path: '/character/:id',
       name: 'character',
       // route level code-splitting
       // this generates a separate chunk (character.[hash].js) for this route

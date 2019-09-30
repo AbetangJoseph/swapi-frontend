@@ -39,10 +39,11 @@
 
     <div id="popularCharacters">
       <PopularCharacters
-        :name="characters.name"
-        :dob="characters.birth_year"
-        :gender="characters.gender"
-        v-for="(characters, index) in characters"
+        :name="character.name"
+        :dob="character.birth_year"
+        :gender="character.gender"
+        :url="character.url"
+        v-for="(character, index) in characters"
         v-bind:key="index"
       />
       <Spinner v-if="starships === null" />

@@ -14,6 +14,7 @@
         :name="character.name"
         :dob="character.birth_year"
         :gender="character.gender"
+        :url="character.url"
         v-for="(character, index) in characters"
         v-bind:key="index"
       />
