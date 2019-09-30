@@ -20,7 +20,7 @@
           </span>
           <p class="card-text">
             This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer...
-            <router-link :to="{ name: 'character', params: { id: url[url.length - 2] }}">
+            <router-link :to="{ name: 'character', params: { id: url.match(/\d+/)[0]}}">
               <u>Read more</u>
             </router-link>
           </p>
