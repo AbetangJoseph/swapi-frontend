@@ -1,4 +1,7 @@
 # swapi-frontend
+A starwars directory created using Vue and SWAPI
+
+deployed at https://swapifrontend.herokuapp.com/
 
 ## Project setup
 ```
