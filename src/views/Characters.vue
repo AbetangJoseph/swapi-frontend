@@ -1,11 +1,11 @@
 <template>
   <div>
-    <Banner />
+    <Banner @typing="search($event)" />
     <sectionTitle title="Starwars Characters" />
 
     <div class="container" id="option" v-if="characters">
       FILTER
-      <Option :options="genderOptions" :isSelected="isGenderSelected" :onChange="onChange" />VIEW
+      <Option :options="genderOptions" :isSelected="isGenderSelected" :onChange="select" />VIEW
       <Option :options="displayOptions" />
     </div>
 
@@ -93,7 +93,7 @@ export default {
 
       this.isGenderSelected = true;
     },
-    onChange($event) {
+    select($event) {
       let selected = JSON.stringify($event.target.value);
 
       if ($event.target.value == "Select...") {
@@ -108,6 +108,21 @@ export default {
       this.characters = this.charactersCopy.filter(
         character => JSON.stringify(character.gender) === selected
       );
+    },
+    search(search) {
+      if (search.trim() === "") {
+        this.characters = this.charactersCopy;
+        return;
+      }
+
+      axios
+        .get(`https://swapi.co/api/people/?search=${search}`)
+        .then(response => {
+          this.characters = response.data.results;
+        })
+        .catch(error => {
+          this.errors.push(error);
+        });
     }
   }
 };
