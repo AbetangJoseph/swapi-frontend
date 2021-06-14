@@ -60,7 +60,7 @@ export default {
   },
   mounted() {
     axios
-      .get(`https://swapi.co/api/starships/${this.$route.params.id}`)
+      .get(`https://swapi.dev/api/starships/${this.$route.params.id}`)
       .then(response => {
         this.starship = response.data;
       })

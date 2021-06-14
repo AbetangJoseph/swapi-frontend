@@ -68,7 +68,7 @@ export default {
   },
   mounted() {
     axios
-      .get(`https://swapi.co/api/people/${this.$route.params.id}/`)
+      .get(`https://swapi.dev/api/people/${this.$route.params.id}/`)
       .then(response => {
         this.character = response.data;
       })
