@@ -47,7 +47,7 @@ export default {
   },
   mounted() {
     axios
-      .get(`https://swapi.dev/api/starships`)
+      .get(`http://swapiapi/starships`)
       .then(response => {
         this.starships = response.data.results;
         this.starshipsCopy = response.data.results;
@@ -86,7 +86,7 @@ export default {
       }
 
       axios
-        .get(`https://swapi.dev/api/starships/?search=${search}`)
+        .get(`http://swapiapi/starships/?search=${search}`)
         .then(response => {
           this.starships = response.data.results;
         })

@@ -98,7 +98,7 @@ export default {
   },
   mounted() {
     axios
-      .get(`https://swapi.dev/api/starships`)
+      .get(`http://swapiapi/starships`)
       .then(response => {
         this.starships = response.data.results.slice(0, 6);
         this.starshipsCopy = response.data.results.slice(0, 6);
@@ -108,7 +108,7 @@ export default {
       });
 
     axios
-      .get(`https://swapi.dev/api/people`)
+      .get(`http://swapiapi/people`)
       .then(response => {
         this.characters = response.data.results.slice(0, 4);
         this.charactersCopy = response.data.results.slice(0, 4);
@@ -118,7 +118,7 @@ export default {
       });
 
     axios
-      .get(`https://swapi.dev/api/planets`)
+      .get(`http://swapiapi/planets`)
       .then(response => {
         this.planets = response.data.results.slice(0, 3);
         this.planetsCopy = response.data.results.slice(0, 3);
@@ -136,7 +136,7 @@ export default {
         return;
       }
       axios
-        .get(`https://swapi.dev/api/starships/?search=${search}`)
+        .get(`http://swapiapi/starships/?search=${search}`)
         .then(response => {
           this.starships = response.data.results.slice(0, 6);
         })
@@ -145,7 +145,7 @@ export default {
         });
 
       axios
-        .get(`https://swapi.dev/api/people/?search=${search}`)
+        .get(`http://swapiapi/people/?search=${search}`)
         .then(response => {
           this.characters = response.data.results.slice(0, 4);
         })
@@ -154,7 +154,7 @@ export default {
         });
 
       axios
-        .get(`https://swapi.dev/api/planets/?search=${search}`)
+        .get(`http://swapiapi/planets/?search=${search}`)
         .then(response => {
           this.planets = response.data.results.slice(0, 3);
         })

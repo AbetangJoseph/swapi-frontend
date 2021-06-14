@@ -58,7 +58,7 @@ export default {
   },
   mounted() {
     axios
-      .get(`https://swapi.dev/api/people`)
+      .get(`http://swapiapi/people`)
       .then(response => {
         this.characters = response.data.results;
         this.charactersCopy = response.data.results;
@@ -116,7 +116,7 @@ export default {
       }
 
       axios
-        .get(`https://swapi.dev/api/people/?search=${search}`)
+        .get(`http://swapiapi/people/?search=${search}`)
         .then(response => {
           this.characters = response.data.results;
         })
